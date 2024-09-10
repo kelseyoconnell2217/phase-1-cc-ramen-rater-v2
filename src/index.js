@@ -22,7 +22,7 @@ function showDetails(ramen){
 } 
 
 const addSubmitListener = (e) => {
-  e.preventDefault()
+  form.addEventListener('submit', ()=>{e.preventDefault()
   let nameInput= e.target["new-name"].value
   //fetch last id
   let idInput
@@ -49,10 +49,10 @@ const addSubmitListener = (e) => {
         "comment": commentInput
     })
     
-
+  
   })
   displayRamens
-}
+})}
 
 const displayRamens = () => {
   fetch('http://localhost:3000/ramens')
@@ -69,14 +69,16 @@ const displayRamens = () => {
 
       }
     )})
-};
+  }
 
 let form = document.getElementById("new-ramen")
 
 
 const main = () => {
-  document.addEventListener('DOMContentLoaded', displayRamens)
-    form.addEventListener('submit', addSubmitListener)
+  // document.addEventListener('DOMContentLoaded', displayRamens)
+    // form.addEventListener('submit', addSubmitListener)
+  displayRamens()
+  // addSubmitListener
 }
 
 main()
@@ -87,4 +89,6 @@ export {
   addSubmitListener,
   handleClick,
   main,
-};
+}
+
+
